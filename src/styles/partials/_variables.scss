@@ -1,6 +1,60 @@
 @use "./typography" as *;
 
+// Sass variables used to store information that will be reused throughout the project.
+
+// ==== COLORS
+// typography colors
+$heading-color: #f50468;
+$paragraph-color: #f50468;
+$anchor-color: #f50468;
+$placeholder-color: #f50468;
+
+// background colors
+$background-color: #f5f5f5;
+$card-background-color: #ffffff;
+
+// suport colors
+$green: #158463;
+$red: #c94515;
+
+// ==== CENTERING ELEMENT VALUES
+$mobile-inline-margin: 1rem;
+$tablet-inline-margin: 2rem;
+$dextop-inline-margin: auto;
+$desktop-max-width: 1020px;
+
+// ==== TYPOGRAPHY
 $heading-font-family: "Young Serif", serif;
 $body-font-family: "Montserrat", sans-serif;
 
-$background-color: #f5f5f5;
+// mobile
+$mobile-h1-size: 1.75rem; // 28px
+$mobile-h1-line-height: 2.25rem; // 36px
+$mobile-h2-size: 1.25rem; // 20px
+$mobile-h2-line-height: 1.75rem; // 28px
+$mobile-h3-size: 0.8125rem; // 13px
+$mobile-h3-line-height: 1.25rem; // 20px
+$mobile-h4-size: 0.6875rem; // 11px
+$mobile-h4-line-height: 1rem; // 16px
+$mobile-p1-size: 0.9375rem; // 15px
+$mobile-p1-line-height: 1.625rem; // 26px
+$mobile-p2-size: 0.8125rem; // 13px
+$mobile-p2-line-height: 1.25rem; // 20px
+$mobile-p3-size: 0.6875rem; // 11px
+$mobile-p3-line-height: 1rem; // 16px
+
+// desktop and tablet
+$desktop-h1-size: 2rem; // 32px
+$desktop-h1-line-height: 2.5rem; // 40px
+$desktop-h2-size: 1.5rem; // 24px
+$desktop-h2-line-height: 2rem; // 32px
+$desktop-h3-size: 0.875rem; // 14px
+$desktop-h3-line-height: 1.375rem; // 22px
+$desktop-h4-size: 0.0075rem; // 12px
+$desktop-h4-line-height: 1.125rem; // 18px
+$desktop-p1-size: 1rem; // 16px
+$desktop-p1-line-height: 1.75rem; // 28px
+$desktop-p2-size: 0.875rem; // 14px
+$desktop-p2-line-height: 1.375rem; // 22px
+$desktop-p3-size: 0.75rem; // 12px
+$desktop-p3-line-height: 1.125rem; // 18px

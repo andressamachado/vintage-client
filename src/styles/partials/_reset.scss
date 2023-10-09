@@ -1,21 +1,120 @@
 @use "./variables" as *;
+@use "./breakpoints" as *;
+
+// Default CSS styling
 
 html {
   box-sizing: border-box;
   overflow-x: hidden;
   font-size: 100%;
+  background-color: $background-color;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  margin: 0;
+// Sets left and right padding spacing for the header.
+// Enables header to expand to full width but content remains centered.
+header {
+  padding: 0 $mobile-inline-margin;
+  @include tabletMode {
+    padding: 0 $tablet-inline-margin;
+  }
 }
 
-body {
+// Sets left and right margin spacing for the main content
+main {
+  margin: 0 $mobile-inline-margin;
+  @include tabletMode {
+    margin-inline: $tablet-inline-margin;
+  }
+  @include desktopMode {
+    max-width: $desktop-max-width;
+    margin-inline: auto;
+  }
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+  color: $anchor-color;
+}
+
+// remove bullet points from lists
+ul {
+  list-style-type: none;
+}
+
+// Default font family (and color) for headings, spans and paragraphs
+h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
-  background-color: $background-color;
+  color: $heading-color;
+}
+
+p, span {
+  font-family: $body-font-family;
+  color: $paragraph-color;
+  font-weight: regular;
+}
+
+// Default color for placeholder text
+::placeholder {
+  color: $placeholder-color;
+}
+
+// Default font size (and line-height) for headings and paragraphs
+h1 {
+  font-size: $mobile-h1-size;
+  line-height: $mobile-h1-line-height;
+  @include tabletMode {
+    font-size: $desktop-h1-size;
+    line-height: $desktop-h1-line-height;
+  }
+}
+
+h2 {
+  font-size: $mobile-h2-size;
+  line-height: $mobile-h2-line-height;
+  @include tabletMode {
+    font-size: $desktop-h2-size;
+    line-height: $desktop-h2-line-height;
+  }
+}
+
+h3 {
+  font-size: $mobile-h3-size;
+  line-height: $mobile-h3-line-height;
+  @include tabletMode {
+    font-size: $desktop-h3-size;
+    line-height: $desktop-h3-line-height;
+  }
+}
+
+h4 {
+  font-size: $mobile-h4-size;
+  line-height: $mobile-h4-line-height;
+  @include tabletMode {
+    font-size: $desktop-h4-size;
+    line-height: $desktop-h4-line-height;
+  }
+}
+
+p {
+  font-size: $mobile-p2-size;
+  line-height: $mobile-p2-line-height;
+  @include tabletMode {
+    font-size: $desktop-p1-size;
+    line-height: $desktop-p1-line-height;
+  }
+}
+
+span {
+  font-size: $mobile-p3-size;
+  line-height: $mobile-p3-line-height;
+  @include tabletMode {
+    font-size: $desktop-p2-size;
+    line-height: $desktop-p2-line-height;
+  }
 }
