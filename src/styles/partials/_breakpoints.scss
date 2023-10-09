@@ -1,0 +1,20 @@
+// File responsible for the responsiveness of the application.
+
+// Mobile Mode (up to 767px)
+// Tablet Mode (768px to 1279px)
+// Desktop Mode (1280px and up)
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+@mixin tabletMode() {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktopMode() {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
