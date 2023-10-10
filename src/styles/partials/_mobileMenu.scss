@@ -1,0 +1,136 @@
+@use "./variables" as *;
+@use "./displayFlexbox" as *;
+
+// Styling file for the mobile hamburger menu component.
+// React library styling :
+// https://github.com/negomi/react-burger-menu#styling
+
+$menu-link-font-size: 1.125rem; // 18px
+$menu-heading-color: white;
+$menu-burger-color: #e7a706;
+$menu-burger-border-color: #373a47;
+$menu-signup-btn-color: #e7a706;
+$menu-background-color: #373a47;
+$menu-background-img-url: url("../../assets/ilustrations/Transhumans\ -\ Plants.png");
+
+/* Position and sizing of burger button and button cross*/
+.bm-burger-button,
+.bm-cross-button {
+  position: fixed;
+  top: 2rem !important;
+  right: $mobile-inline-margin !important;
+  height: 1.5rem !important;
+  width: 1.8rem !important;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  height: 15% !important;
+  border: 1px solid $menu-burger-border-color;
+  border-radius: 0.25rem;
+  background: $menu-burger-color;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  size: 100% !important;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  top: 0;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  padding: 1.7rem 1.5rem 0;
+  font-size: $menu-link-font-size;
+  background: $menu-background-color;
+  background-image: $menu-background-img-url;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-blend-mode: soft-light;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  // top | left and right | bottom
+  padding: 0 1rem 1rem;
+  @include flexbox(column, flex-start, flex-start, 1rem);
+
+  h1 {
+    font-family: $heading-font-family;
+    font-size: $mobile-h1-size;
+    line-height: $mobile-h1-line-height;
+    color: $menu-heading-color;
+  }
+}
+
+/* Sign Up and Sign In buttons */
+.signup-btn,
+.signin-btn {
+  position: absolute;
+  width: calc(100% - 5rem);
+  height: 2rem;
+  border: 1px solid $menu-burger-border-color;
+  border-radius: 10px;
+  font-size: $mobile-p1-size;
+}
+
+.signup-btn {
+  margin-top: 2rem;
+  background-color: $menu-signup-btn-color;
+  box-shadow: 0.3rem 0.5rem 0 0 $overlay-color;
+  @include flexbox(row, center, center, 0, nowrap);
+
+  transition: margin 1s, box-shadow 1s;
+  &:hover {
+    margin-top: 2.3rem;
+    box-shadow: none;
+  }
+  &:active {
+    box-shadow: inset 0.15rem 0.3rem 2px 0 $overlay-color;
+  }
+}
+
+.signin-btn {
+  margin-top: 4rem;
+  color: $menu-signup-btn-color;
+  border: none;
+  @include flexbox(row, center, center, 0, nowrap);
+
+  transition: background-color 1s;
+  &:hover {
+    color: $light-font-color;
+    background-color: $overlay-color;
+  }
+}
+
+/* nav <ul> element - links list */
+.bm-item {
+  font-family: $body-font-family;
+  display: inline-block;
+  margin: 0;
+
+  // nav <li> element - link element
+  li {
+    margin: 1.5rem 0;
+    color: $light-font-color;
+    transition: padding-left 1s;
+    &:hover {
+      padding-left: 15px;
+      color: $anchor-hover-color;
+      font-style: italic;
+    }
+  }
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: $overlay-color;
+}
