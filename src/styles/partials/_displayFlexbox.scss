@@ -1,0 +1,33 @@
+// Mixin for display: flexbox
+
+// Usage:
+// @include flexbox() { justify-content: center; };
+// @include flexbox(column) { justify-content: center; };
+@mixin flexbox($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  @content;
+}
+
+// $direction: row (default) | row-reverse | column | column-reverse
+// $justify: flex-start (default) | flex-end | center | space-between | space-around | space-evenly
+// $align: center (default) | flex-start | flex-end | stretch | baseline
+// $gap: 0 (default) | 1rem | 2rem | 3rem | 4rem | 5rem
+// $wrap: nowrap | wrap | wrap-reverse
+
+// Usage:
+// @include flexbox(column, center, center, 0, wrap) {}
+@mixin flexbox(
+  $direction: row,
+  $justify: flex-start,
+  $align: center,
+  $gap: 0,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
