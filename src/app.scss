@@ -1,4 +1,12 @@
 @use "./styles/partials/reset";
+@use "./styles/partials/variables" as *;
+
+.App-header {
+  // top | left and right | bottom
+  padding: 1.5rem $mobile-inline-margin 0;
+  box-shadow: $default-box-shadow;
+  background-color: $header-background-color;
+}
 
 @keyframes App-logo-spin {
   from {
