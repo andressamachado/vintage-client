@@ -1,0 +1,63 @@
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import FormInput from "../../components/FormInput/FormInput";
+import Button from "../../components/Button/Button";
+import "./sign-up-page.scss";
+
+function SignUpPage() {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  // Request to the server to create a new user
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const send = async () => {
+      try {
+        const { first_name, last_name, email, password, phone, address } =
+          event.target;
+
+        await axios.post("http://127.0.0.1:5050/api/users/register", {
+          first_name: first_name.value,
+          last_name: last_name.value,
+          email: email.value,
+          password: password.value,
+          phone: phone.value,
+          address: address.value,
+          isAdmin: 0,
+        });
+
+        navigate("/sign-in");
+      } catch (error) {
+        event.target.reset();
+        setError(error.message);
+      }
+    };
+
+    send();
+  };
+
+  return (
+    <main className="signup-component">
+      <form className="signup" onSubmit={handleSubmit}>
+        <h1 className="signup__title">Sign up</h1>
+        <FormInput type="text" name="first_name" label="First name" />
+        <FormInput type="text" name="last_name" label="Last name" />
+        <FormInput type="text" name="email" label="Email" />
+        <FormInput type="text" name="phone" label="Phone" />
+        <FormInput type="text" name="address" label="Address" />
+        <FormInput type="password" name="password" label="Password" />
+        <Button type="submit" label="Sign up" currentPage="sign-up-page" />
+
+        {/* TODO: Add error as TOAST<p>{error}</p> */}
+      </form>
+
+      <p className="signup-component__signin-link">
+        Have an account? <Link to="/login">Log in</Link>
+      </p>
+    </main>
+  );
+}
+
+export default SignUpPage;

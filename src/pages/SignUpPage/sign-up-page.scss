@@ -1,0 +1,39 @@
+@use "../../styles/partials/mobileMenu" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+
+.signup-component {
+  position: relative;
+  background-color: $card-background-color;
+  background-image: url("../../assets/ilustrations/Transhumans\ -\ Chaotic\ Good.png");
+  background-repeat: no-repeat;
+  background-size: 95%;
+  background-position-x: right;
+  background-position-y: bottom;
+  margin: 2rem $mobile-inline-margin;
+  padding: 2rem $mobile-inline-margin;
+  border-radius: 10px;
+  box-shadow: $default-box-shadow;
+
+  &__signin-link {
+    margin-top: 4rem;
+
+    a {
+      color: $anchor-hover-color;
+      font-size: $mobile-p1-size;
+      font-weight: 600;
+    }
+  }
+}
+
+.signup {
+  &__title {
+    font-family: $heading-font-family;
+    font-size: $mobile-h1-size;
+    line-height: $mobile-h1-line-height;
+    color: #92911d;
+    border-bottom: 2px solid $form-divider-color;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../styles/partials/mobileMenu" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-field {
+  @include flexbox(column, flex-start, flex-start, 0, nowrap);
+  margin: 0 $mobile-inline-margin 0.5rem;
+
+  &__label {
+    font-family: $body-font-family;
+    font-size: $mobile-p2-size;
+    line-height: $mobile-p2-line-height;
+    color: $form-label-color;
+    font-weight: 600;
+  }
+
+  &__input {
+    height: 1.5rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    border: 1px solid $form-border-color;
+    background: $form-fill-color;
+    padding-inline: 0.5rem;
+  }
+}
