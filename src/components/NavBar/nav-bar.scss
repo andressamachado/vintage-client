@@ -1,19 +1,86 @@
 @use "../../styles/partials/mobileMenu" as *;
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
 
 .navbar {
-  // hide mobile nav bar when not in mobile mode
-  @include tabletMode {
-    &--mobile {
+  // hide or show tablet nav bar depending on screen size
+  &--tablet {
+    // hide on mobile (below 768px)
+    display: none;
+
+    // show on tablet and above (768px and up)
+    @include tabletMode {
+      display: flex;
+    }
+
+    @include desktopMode {
+      max-width: $desktop-max-width;
+      margin: 0 auto;
+    }
+  }
+
+  // hide mobile nav bar when above 768px
+  &--mobile {
+    @include tabletMode {
       display: none;
     }
   }
 
-  &__logo {
+  // MOBILE NAV BAR STYLING
+  &__mobile-logo-container {
     @include flexbox(row, flex-start, flex-end, 0, nowrap);
     img {
-      height: 10rem;
+      width: 8.5rem;
+    }
+    div {
+      width: 100%;
+      @include flexbox(row, flex-end, flex-end, 0, nowrap);
+    }
+  }
+
+  // TABLET NAV BAR STYLING
+  // ilustration
+  &__left-container {
+    @include flexbox(row, flex-start, center, 0, nowrap);
+    img {
+      width: 8.5rem;
+    }
+  }
+
+  // logo, navigation links, and signup/signin buttons
+  &__right-container {
+    width: 100%;
+    @include flexbox(column, flex-end, flex-end, 2rem, nowrap);
+  }
+
+  // logo & decorative splash background
+  &__top-container {
+    height: 70%;
+    width: 100%;
+    background-image: url("../../assets/backgrounds/decorative-splash.png");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position-y: -60px;
+    background-position-x: right;
+    text-shadow: 10rem 0 0 white;
+    @include flexbox(row, flex-end, flex-end, 1.5rem, nowrap);
+  }
+
+  // navigation links
+  &__bottom-container {
+    @include flexbox(row, flex-end, center, 1.8rem, nowrap);
+
+    ul {
+      font-family: $body-font-family;
+      font-weight: 400;
+      @include flexbox(row, flex-end, center, 1rem, nowrap);
+    }
+
+    p {
+      font-family: $body-font-family;
+      color: #b0b427;
+      font-weight: 600;
     }
   }
 }
