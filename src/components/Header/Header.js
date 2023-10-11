@@ -1,5 +1,6 @@
 import { slide as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 import closeMenuIcon from "../../assets/icons/close-menu-icon.svg";
 import logo from "../../assets/ilustrations/Transhumans - Pilot.png";
 import "./header.scss";
@@ -31,10 +32,9 @@ const NavBar = () => {
             <Link to="/categories"> <li>Clothing</li></Link>
           </ul>
 
-          {/* Sign In and Sign Up btns */}
-          <Link to="/signup">
-            <p className="signup-btn">Sign Up</p>
-          </Link>
+          {/* Sign Up and Sign In btns */}
+          <Button label="Sign Up"/>
+
           <Link to="/signin">
             <p className="signin-btn">Sign In</p>
           </Link>
