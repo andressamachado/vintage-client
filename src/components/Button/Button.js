@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import "./button.scss";
 
-function Button({ label }) {
+function Button({ label, currentPage }) {
+  const classNames = "signup-btn " + currentPage;
+
   return (
     <Link to="/sign-up">
-      <p className="signup-btn">{label}</p>
+      <p className={classNames}>{label}</p>
     </Link>
   );
 }

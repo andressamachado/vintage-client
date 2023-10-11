@@ -33,7 +33,7 @@ const NavBar = () => {
           </ul>
 
           {/* Sign Up and Sign In btns */}
-          <Button label="Sign Up"/>
+          <Button label="Sign Up" currentPage="mobile-slide-menu"/>
 
           <Link to="/signin">
             <p className="signin-btn">Sign In</p>
