@@ -2,17 +2,6 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/breakpoints" as *;
 
-.App-header {
-  // top | left and right | bottom
-  padding: 1.5rem $mobile-inline-margin 0;
-  box-shadow: $default-box-shadow;
-  background-color: $header-background-color;
-
-  @include tabletMode {
-    padding: 1.5rem $tablet-inline-margin 0;
-  }
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

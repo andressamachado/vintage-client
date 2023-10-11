@@ -2,13 +2,13 @@ import { slide as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
 import closeMenuIcon from "../../assets/icons/close-menu-icon.svg";
 import logo from "../../assets/ilustrations/Transhumans - Pilot.png";
-import "./nav-bar.scss";
+import "./header.scss";
 
 const NavBar = () => {
   return (
-    <nav>
+    <header>
       {/* Navigation bar for mobile screens */} 
-      <section className="navbar--mobile"> 
+      <nav className="navbar--mobile"> 
         {/* ilustration & logo */}
         <div className="navbar__mobile-logo-container">
           <img src={logo} alt="Vintage Culture logo" />
@@ -39,10 +39,10 @@ const NavBar = () => {
             <p className="signin-btn">Sign In</p>
           </Link>
         </Menu>
-      </section>
+      </nav>
 
       {/* Navigation bar for tablet and desktop screens */}
-      <section className="navbar--tablet">
+      <nav className="navbar--tablet">
         {/* ilustration*/}
         <div className="navbar__left-container">
           <img src={logo} alt="Vintage Culture logo" />
@@ -74,8 +74,8 @@ const NavBar = () => {
             </Link>
           </div>
         </div>
-      </section>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
