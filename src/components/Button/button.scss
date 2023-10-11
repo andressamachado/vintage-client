@@ -3,38 +3,39 @@
 
 // next two classes are used to determine the top margin depending on the page
 // that the Button component is been used.
-.sign-up-page {
-  margin-top: 0.5rem;
-
-  transition: margin 1s, box-shadow 1s;
-  &:hover {
-    margin-top: 0.8rem;
-    box-shadow: none;
-  }
-}
 
 .mobile-slide-menu {
-  margin-top: 2rem;
+  margin: 2rem 0 0;
 
-  transition: margin 1s, box-shadow 1s;
   &:hover {
-    margin-top: 2.3rem;
+    margin-top: 2.05rem;
     box-shadow: none;
   }
 }
 
 .signup-btn {
   position: absolute;
-  width: calc(100% - 5rem);
+  width: calc(100vw - 5 * $mobile-inline-margin);
   height: 2rem;
   border-radius: 10px;
-  border: 1px solid $menu-burger-border-color;
-  font-size: $mobile-p1-size;
+  border: 1px solid $button-border-color;
+  font-size: $mobile-p2-size;
   background-color: $menu-signup-btn-color;
-  box-shadow: 0 0.3rem 0 0 $overlay-color;
+  color: $light-font-color;
+  box-shadow: 0 0.05rem 0 0 $overlay-color;
   @include flexbox(row, center, center, 0, nowrap);
 
   &:active {
-    box-shadow: inset 0.15rem 0.3rem 2px 0 $overlay-color;
+    box-shadow: inset 2px 0.2rem 0.3rem 0 $overlay-color;
+  }
+}
+
+.sign-up-page {
+  width: calc(100vw - 6 * $mobile-inline-margin);
+  margin: 1rem 0 0 1rem;
+
+  &:hover {
+    margin-top: 1.05rem;
+    box-shadow: none;
   }
 }
