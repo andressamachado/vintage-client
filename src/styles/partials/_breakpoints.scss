@@ -4,8 +4,15 @@
 // Tablet Mode (768px to 1279px)
 // Desktop Mode (1280px and up)
 
+$large-mobile-breakpoint: 400px;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
+
+@mixin largeMobileScreen() {
+  @media (min-width: $large-mobile-breakpoint) {
+    @content;
+  }
+}
 
 @mixin tabletMode() {
   @media (min-width: $tablet-breakpoint) {
