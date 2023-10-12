@@ -1,0 +1,68 @@
+@use "../../styles/partials/mobileMenu" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+
+.signin-component {
+  height: 25rem;
+  position: relative;
+  background-color: $card-background-color;
+  margin: 2rem $mobile-inline-margin;
+  padding: 2rem 0;
+  @include tabletMode {
+    margin: 4rem $tablet-inline-margin;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  @include desktopMode {
+    margin: 4rem auto;
+    max-width: $desktop-max-width;
+  }
+  border-radius: 10px;
+  box-shadow: $default-box-shadow;
+  @include largeMobileScreen {
+    background-image: url("../../assets/ilustrations/Transhumans\ -\ Chaotic\ Good.png");
+    background-repeat: no-repeat;
+    background-size: 18rem;
+    background-position-x: right;
+    background-position-y: bottom;
+  }
+
+  .signin {
+    &__title {
+      text-align: center;
+      font-family: $heading-font-family;
+      font-size: $mobile-h1-size;
+      line-height: $mobile-h1-line-height;
+      color: #92911d;
+      border-bottom: 1px solid #13182c1a;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      @include largeMobileScreen {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  &__signup-link {
+    margin-top: 4.5rem;
+    margin-inline: calc(2 * $mobile-inline-margin);
+    text-align: center;
+    @include largeMobileScreen {
+      text-align: start;
+      position: absolute;
+      bottom: 2rem;
+    }
+    @include tabletMode {
+      margin-top: 1.7rem;
+      margin-left: 4.3rem;
+    }
+
+    a {
+      color: $anchor-hover-color;
+      font-size: $mobile-p1-size;
+      font-weight: 600;
+    }
+  }
+}

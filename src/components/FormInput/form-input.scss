@@ -24,6 +24,9 @@
     @include largeMobileScreen {
       width: 70%;
     }
+    @include tabletMode {
+      width: 25rem;
+    }
     border-radius: 0.3rem;
     border: 1px solid $form-border-color;
     background: $form-fill-color;

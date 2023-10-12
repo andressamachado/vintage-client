@@ -28,12 +28,9 @@ function SignInPage() {
       sessionStorage.setItem("token", data.token);
 
       toast.success("Go fill your basket!");
-      setTimeout(() => {
-        navigate("/");
-      }, 2500);
+      setTimeout(() => { navigate("/") }, 2500);
     } catch (error) {
       const errorArr = error.response.data;
-      console.log(errorArr);
       if (typeof errorArr === "object") {
         toast.error(errorArr.join(""));
       } else {
