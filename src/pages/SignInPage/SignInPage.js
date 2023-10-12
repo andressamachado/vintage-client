@@ -28,9 +28,12 @@ function SignInPage() {
       sessionStorage.setItem("token", data.token);
 
       toast.success("Go fill your basket!");
-      setTimeout(() => { navigate("/") }, 2500);
+      setTimeout(() => {
+        navigate("/");
+      }, 2500);
     } catch (error) {
       const errorArr = error.response.data;
+      console.log(errorArr);
       if (typeof errorArr === "object") {
         toast.error(errorArr.join(""));
       } else {
@@ -50,7 +53,7 @@ function SignInPage() {
         <Button type="submit" label="Sign in" currentPage="sign-in-page" />
       </form>
 
-      <p className="signin-component__signin-link">
+      <p className="signin-component__signup-link">
         Don`t have an account? <Link to="/sign-up">Sign up</Link>
       </p>
 
