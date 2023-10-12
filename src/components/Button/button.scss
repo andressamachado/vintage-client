@@ -13,6 +13,16 @@
   }
 }
 
+.sign-up-page {
+  width: calc(100vw - 6 * $mobile-inline-margin);
+  margin: 1rem 0 0 1rem;
+
+  &:hover {
+    margin-top: 1.05rem;
+    box-shadow: none;
+  }
+}
+
 .signup-btn {
   position: absolute;
   width: calc(100vw - 5 * $mobile-inline-margin);
@@ -27,15 +37,5 @@
 
   &:active {
     box-shadow: inset 2px 0.2rem 0.3rem 0 $overlay-color;
-  }
-}
-
-.sign-up-page {
-  width: calc(100vw - 6 * $mobile-inline-margin);
-  margin: 1rem 0 0 1rem;
-
-  &:hover {
-    margin-top: 1.05rem;
-    box-shadow: none;
   }
 }
