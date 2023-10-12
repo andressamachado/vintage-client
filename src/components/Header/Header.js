@@ -1,11 +1,21 @@
+import {useState} from "react";
 import { slide as Menu } from "react-burger-menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import closeMenuIcon from "../../assets/icons/close-menu-icon.svg";
 import logo from "../../assets/ilustrations/Transhumans - Pilot.png";
 import "./header.scss";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const onSignUpClick = () => {
+    document.querySelector("#react-burger-cross-btn").click()
+    navigate("/sign-up");
+  }
+
+
   return (
     <header>
       {/* Navigation bar for mobile screens */} 
@@ -19,7 +29,7 @@ const NavBar = () => {
         </div>
 
         {/* Slide menu for mobile screens - Burger */}
-        <Menu right width={"100%"} customCrossIcon={<img src={closeMenuIcon} />}>
+        <Menu isOpen={isOpen} right width={"100%"} customCrossIcon={<img src={closeMenuIcon} />}>
           <div>
             <h1>Vintage Culture</h1>
           </div>
@@ -34,7 +44,7 @@ const NavBar = () => {
 
           {/* Sign Up and Sign In btns */}
           <div>
-            <Button label="Sign Up" currentPage="mobile-slide-menu"/>
+            <Button label="Sign Up" currentPage="mobile-slide-menu" onClick={onSignUpClick}/>
           </div>
           <Link to="/signin">
             <p className="signin-btn">Sign In</p>
