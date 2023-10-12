@@ -46,7 +46,7 @@ const NavBar = () => {
           <div>
             <Button label="Sign Up" currentPage="mobile-slide-menu" onClick={onSignUpClick}/>
           </div>
-          <Link to="/signin">
+          <Link to="/sign-in">
             <p className="signin-btn">Sign In</p>
           </Link>
         </Menu>
@@ -80,7 +80,7 @@ const NavBar = () => {
             <Link to="/signup">
               <p className="navbar__signup-btn">Sign Up</p>
             </Link>
-            <Link to="/signin">
+            <Link to="/sign-in">
               <p className="navbar__signin-btn">Sign In</p>
             </Link>
           </div>

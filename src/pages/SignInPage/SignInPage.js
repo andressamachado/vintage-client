@@ -17,7 +17,7 @@ function SignInPage() {
     // Request to the server to check if the user is in the database
     try {
       const { data } = await axios.post(
-        "http://127.0.0.1:5050/api/users/signin",
+        "http://127.0.0.1:5050/api/users/sign-in",
         {
           email: event.target.email.value,
           password: event.target.password.value,
