@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import FormInput from "../../components/FormInput/FormInput";
 import Button from "../../components/Button/Button";
 import "./sign-up-page.scss";
@@ -28,8 +30,12 @@ function SignUpPage() {
           isAdmin: 0,
         });
 
-        navigate("/sign-in");
+        toast.success("User sucessfuly added!");
+        setTimeout(() => {navigate("/sign-in");}, 3000);
       } catch (error) {
+        const errorArr = error.response.data.errors;
+        toast.error(errorArr.join(""));
+
         event.target.reset();
         setError(error.message);
       }
@@ -49,13 +55,24 @@ function SignUpPage() {
         <FormInput type="text" name="address" label="Address" />
         <FormInput type="password" name="password" label="Password" />
         <Button type="submit" label="Sign up" currentPage="sign-up-page" />
-
-        {/* TODO: Add error as TOAST<p>{error}</p> */}
       </form>
 
       <p className="signup-component__signin-link">
         Have an account? <Link to="/login">Log in</Link>
       </p>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </main>
   );
 }
