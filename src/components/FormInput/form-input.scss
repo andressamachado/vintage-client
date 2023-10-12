@@ -6,6 +6,9 @@
 .form-field {
   @include flexbox(column, flex-start, flex-start, 0, nowrap);
   margin: 0 calc(2 * $mobile-inline-margin) 0.5rem;
+  @include tabletMode {
+    margin: 0 calc(2 * $tablet-inline-margin) 0.5rem;
+  }
 
   &__label {
     font-family: $body-font-family;

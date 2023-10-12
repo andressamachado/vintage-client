@@ -6,7 +6,7 @@
 // typography colors
 $heading-color: #2b2b2b;
 $paragraph-color: #2b2b2b;
-$anchor-color: #f50468;
+$anchor-color: #2b2b2b;
 $anchor-hover-color: #e7a706;
 $placeholder-color: #f50468;
 $light-font-color: whitesmoke;
@@ -16,11 +16,29 @@ $background-color: #f5f5f5;
 $card-background-color: #ffffff;
 $overlay-color: rgba(0, 0, 0, 0.3);
 $header-background-color: white;
-$default-box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+$default-box-shadow: 0px 2px 5px 0px #13182c1a;
+
+// form colors
+$form-border-color: #cb6d61e4;
+$form-fill-color: #f1ecece9;
+$form-label-color: #cc9224;
+$form-sign-color: #78958a;
+$form-divider-color: #78958a51;
+
+// button colors
+$button-border-color: #956d08;
 
 // suport colors
 $green: #158463;
 $red: #c94515;
+
+// mobile slide menu colors
+$menu-heading-color: white;
+$menu-burger-color: #e7a706;
+$menu-burger-border-color: #373a47;
+$menu-signup-btn-color: #e7a706;
+$menu-background-color: #373a47;
+$menu-background-img-url: url("../../assets/ilustrations/Transhumans\ -\ Plants.png");
 
 // ==== CENTERING ELEMENT VALUES
 $mobile-inline-margin: 1rem;
@@ -33,6 +51,7 @@ $heading-font-family: "Young Serif", serif;
 $body-font-family: "Montserrat", sans-serif;
 
 // mobile
+$menu-link-font-size: 1.125rem; // 18px
 $mobile-h1-size: 1.75rem; // 28px
 $mobile-h1-line-height: 2.25rem; // 36px
 $mobile-h2-size: 1.25rem; // 20px
@@ -49,7 +68,7 @@ $mobile-p3-size: 0.6875rem; // 11px
 $mobile-p3-line-height: 1rem; // 16px
 
 // desktop and tablet
-$desktop-h1-size: 2rem; // 32px
+$desktop-h1-size: 2.5rem; // 40px
 $desktop-h1-line-height: 2.5rem; // 40px
 $desktop-h2-size: 1.5rem; // 24px
 $desktop-h2-line-height: 2rem; // 32px

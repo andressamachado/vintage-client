@@ -1,9 +1,9 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 // next two classes are used to determine the top margin depending on the page
 // that the Button component is been used.
-
 .mobile-slide-menu {
   margin: 2rem 0 0;
 
@@ -37,5 +37,12 @@
 
   &:active {
     box-shadow: inset 2px 0.2rem 0.3rem 0 $overlay-color;
+  }
+}
+
+.sign-up-page {
+  @include tabletMode {
+    width: 30%;
+    margin-left: calc(2 * $tablet-inline-margin);
   }
 }

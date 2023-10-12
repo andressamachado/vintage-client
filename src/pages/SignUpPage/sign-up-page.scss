@@ -8,6 +8,13 @@
   background-color: $card-background-color;
   margin: 2rem $mobile-inline-margin;
   padding: 2rem 0;
+  @include tabletMode {
+    margin: 4rem $tablet-inline-margin;
+  }
+  @include desktopMode {
+    margin: 4rem auto;
+    max-width: $desktop-max-width;
+  }
   border-radius: 10px;
   box-shadow: $default-box-shadow;
   @include largeMobileScreen {
@@ -17,11 +24,22 @@
     background-position-x: right;
     background-position-y: center;
   }
+  @include tabletMode {
+    background-image: url("../../assets/ilustrations/Transhumans\ -\ Chaotic\ Good.png");
+    background-repeat: no-repeat;
+    background-size: 19rem;
+    background-position-x: right;
+    background-position-y: center;
+  }
 
   &__signin-link {
     margin-top: 4rem;
     margin-inline: $mobile-inline-margin;
     text-align: center;
+    @include tabletMode {
+      margin-top: 1.7rem;
+      margin-left: 3rem;
+    }
 
     a {
       color: $anchor-hover-color;
