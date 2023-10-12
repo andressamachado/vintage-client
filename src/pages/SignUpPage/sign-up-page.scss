@@ -10,6 +10,7 @@
   padding: 2rem 0;
   @include tabletMode {
     margin: 4rem $tablet-inline-margin;
+    @include flexbox(column, center, center, 0, nowrap);
   }
   @include desktopMode {
     margin: 4rem auto;
@@ -37,7 +38,7 @@
     margin-inline: $mobile-inline-margin;
     text-align: center;
     @include tabletMode {
-      margin-top: 1.7rem;
+      margin-top: 4rem;
       margin-left: 3rem;
     }
 
