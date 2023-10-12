@@ -31,7 +31,9 @@ function SignUpPage() {
         });
 
         toast.success("User sucessfuly added!");
-        setTimeout(() => {navigate("/sign-in");}, 3000);
+        setTimeout(() => {
+          navigate("/sign-in");
+        }, 3000);
       } catch (error) {
         const errorArr = error.response.data.errors;
         toast.error(errorArr.join(""));
@@ -58,7 +60,7 @@ function SignUpPage() {
       </form>
 
       <p className="signup-component__signin-link">
-        Have an account? <Link to="/login">Log in</Link>
+        Have an account? <Link to="/sign-in">Log in</Link>
       </p>
 
       <ToastContainer
