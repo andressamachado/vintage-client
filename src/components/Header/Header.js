@@ -15,6 +15,10 @@ const NavBar = () => {
     navigate("/sign-up");
   }
 
+  const onSignInClick = () => {
+    document.querySelector("#react-burger-cross-btn").click()
+    navigate("/sign-in");
+  }
 
   return (
     <header>
@@ -46,7 +50,7 @@ const NavBar = () => {
           <div>
             <Button label="Sign Up" currentPage="mobile-slide-menu" onClick={onSignUpClick}/>
           </div>
-          <Link to="/sign-in">
+          <Link to="/sign-in" onClick={onSignInClick}>
             <p className="signin-btn">Sign In</p>
           </Link>
         </Menu>
@@ -77,7 +81,7 @@ const NavBar = () => {
             </ul>
 
             {/* Sign In and Sign Up btns */}
-            <Link to="/signup">
+            <Link to="/sign-up">
               <p className="navbar__signup-btn">Sign Up</p>
             </Link>
             <Link to="/sign-in">
