@@ -22,17 +22,87 @@
   }
 
   &__form-container {
-    width: 100%;
-    margin-inline: $mobile-inline-margin;
+    margin: 0 calc(2 * $mobile-inline-margin);
 
     form {
-      width: 100%;
       @include flexbox(column, flex-start, flex-start, 1rem, nowrap);
     }
   }
 
-  &__label {
+  label {
+    font-family: $body-font-family;
+    font-size: $mobile-p2-size;
+    color: $form-label-color;
+    font-weight: 600;
+    width: 100%;
+    @include flexbox(column, flex-start, flex-start, 0.25rem, nowrap);
+
+    input,
+    textarea {
+      font-weight: 200;
+      width: 100%;
+      padding: 0.25rem;
+      border-radius: 4px;
+      border: 1px solid $form-border-color;
+      background-color: #f6f2f2e9;
+      font-family: $body-font-family;
+      font-size: $mobile-p3-size;
+
+      &::placeholder {
+        color: $placeholder-color;
+      }
+    }
+  }
+
+  &__fields {
     width: 100%;
     @include flexbox(column, flex-start, flex-start, 0.5rem, nowrap);
+  }
+
+  &__image-preview {
+    @include flexbox(column, flex-start, flex-start, 1rem, nowrap);
+    input {
+      outline: none;
+    }
+    input::file-selector-button {
+      width: 45%;
+      &:hover {
+        background-color: #cc9224;
+        border-color: $form-border-color;
+        color: $light-font-color;
+      }
+    }
+
+    img {
+      width: 70%;
+      height: auto;
+      object-fit: fill;
+    }
+  }
+
+  &__buttons-container {
+    width: 100%;
+    @include flexbox(row, space-between, center, 0.5rem, nowrap);
+    input,
+    button {
+      width: 45%;
+      height: 1.5rem;
+      border-radius: 0.25rem;
+      color: $light-font-color;
+    }
+
+    button {
+      background-color: $red;
+      &:hover {
+        background-color: $dark-red;
+      }
+    }
+
+    input {
+      background-color: $green;
+      &:hover {
+        background-color: $dark-green;
+      }
+    }
   }
 }

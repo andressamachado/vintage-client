@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import FormInput from "../../components/FormInput/FormInput";
-import Button from "../../components/Button/Button";
+
+import imagePlaceholder from "../../assets/backgrounds/image-placeholder.png";
 import "./upload-page.scss";
 
 function UploadPage() {
@@ -81,15 +81,24 @@ function UploadPage() {
                   <input name="image_file" type="file" accept="image/*" onChange={onImageChange} />
                 </label>
 
-                {/* If imagePreview was set, then transform the string URL to an object URL to be displayed */}
-                {imagePreview && 
-                  (<img src={URL.createObjectURL(imagePreview)} alt="product image preview" />)
-                }
+                <div>
+                  {/* If imagePreview was set, then transform the string URL to an object URL to be displayed */}
+                  <img src={imagePreview ? URL.createObjectURL(imagePreview) :  imagePlaceholder} alt="product image preview" />
+                </div>
               </div>
             </div>
 
             {/* title, description, and price */}
             <div className="upload__fields">
+              <label className="upload__label">
+                Price
+                <input
+                  type="text"
+                  name="price"
+                  placeholder="Add a price to your product"
+                />
+              </label>
+              
               <label className="upload__label">
                 Title your product
                 <input
@@ -105,15 +114,6 @@ function UploadPage() {
                   type="text"
                   name="description"
                   placeholder="Add a description to your product"
-                />
-              </label>
-
-              <label className="upload__label">
-                Price
-                <input
-                  type="text"
-                  name="price"
-                  placeholder="Add a price to your product"
                 />
               </label>
             </div>
