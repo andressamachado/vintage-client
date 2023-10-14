@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+
+.featured-products__card {
+  padding: 1.5rem 0.625rem;
+  width: 70%;
+  height: 50%;
+  background-color: $card-background-color;
+  border-radius: 0.5rem;
+  @include flexbox(column, center, center, 0, nowrap);
+  box-shadow: $default-box-shadow;
+}
+.featured-products__title {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  h3 {
+    width: 100%;
+    font-size: 1.8rem;
+    font-family: $price-tag-font-family;
+  }
+}
+
+.featured-products__image {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 90%;
+    height: 40%;
+    box-shadow: $default-box-shadow;
+  }
+}
+
+span.featured-products__price {
+  font-family: $price-tag-price-font-family;
+  font-size: 1.5rem;
+}

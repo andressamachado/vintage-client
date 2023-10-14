@@ -52,4 +52,21 @@
     format("truetype");
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,200;1,400&display=swap");
+// Price tag fonts
+@font-face {
+  font-family: "Permanent Marker", cursive;
+  font-style: regular;
+  font-weight: 400;
+  src: url ("../../assets/fonts/Permanent_Marker/PermanentMarker-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Shadows Into Light", cursive;
+  font-style: regular;
+  font-weight: 400;
+  src: url ("../../assets/fonts/ShadowsIntoLight/ShadowsIntoLight-Regular.ttf")
+    format("truetype");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,200;1,400&family=Permanent+Marker&family=Shadows+Into+Light&display=swap");
