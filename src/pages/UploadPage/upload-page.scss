@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+
+.upload {
+  background-color: $card-background-color;
+  margin: 2rem $mobile-inline-margin;
+  padding: 2rem 0;
+  border-radius: 10px;
+  box-shadow: $default-box-shadow;
+  @include flexbox(column, flex-start, flex-start, 0, nowrap);
+
+  &__title {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #13182c1a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+
+    h1 {
+      color: #92911d;
+    }
+  }
+
+  &__form-container {
+    width: 100%;
+    margin-inline: $mobile-inline-margin;
+
+    form {
+      width: 100%;
+      @include flexbox(column, flex-start, flex-start, 1rem, nowrap);
+    }
+  }
+
+  &__label {
+    width: 100%;
+    @include flexbox(column, flex-start, flex-start, 0.5rem, nowrap);
+  }
+}
