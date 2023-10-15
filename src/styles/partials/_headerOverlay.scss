@@ -1,0 +1,9 @@
+// Mixin for positioning overlay on header
+
+@mixin headerOverlay($isTablet: false) {
+  position: relative;
+  z-index: 1;
+  top: if($isTablet, -94px, -60px);
+  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+  border-radius: 1rem;
+}
