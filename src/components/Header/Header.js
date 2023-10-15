@@ -1,15 +1,23 @@
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { slide as Menu } from "react-burger-menu";
 import { Link, useNavigate } from "react-router-dom";
-import { SessionContext } from "../SessionContext/SessionContext";
 import Button from "../Button/Button";
 import closeMenuIcon from "../../assets/icons/close-menu-icon.svg";
 import logo from "../../assets/ilustrations/Transhumans - Pilot.png";
 import "./header.scss";
+import { SessionContext } from "../SessionContext/SessionContext";
+import { CartContext } from "../CartContext/CartContext";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartProducts } = useContext(CartContext);
+
   const { isLoggedIn, logOut } = useContext(SessionContext);
+
+  const totalCartItems = cartProducts.reduce((total, { quantity }) => {
+    total = +quantity;
+    return total;
+  }, 0);
 
   const navigate = useNavigate();
 
@@ -36,8 +44,7 @@ const NavBar = () => {
           <img src={logo} alt="Vintage Culture logo" />
           <div>
             <Link to="/">
-              {" "}
-              <h1>Vintage Culture</h1>{" "}
+              <h1>Vintage Culture</h1>
             </Link>
           </div>
         </div>
@@ -56,19 +63,15 @@ const NavBar = () => {
           {/* Navigation links */}
           <ul>
             <Link to="/about">
-              {" "}
-              <li>About</li>{" "}
+              <li>About</li>
             </Link>
             <Link to="/staff">
-              {" "}
-              <li>Staff</li>{" "}
+              <li>Staff</li>
             </Link>
             <Link to="/repair">
-              {" "}
-              <li>Repair</li>{" "}
+              <li>Repair</li>
             </Link>
             <Link to="/categories">
-              {" "}
               <li>Clothing</li>
             </Link>
           </ul>
@@ -105,8 +108,7 @@ const NavBar = () => {
           {/* logo */}
           <div className="navbar__top-container">
             <Link to="/">
-              {" "}
-              <h1>Vintage Culture</h1>{" "}
+              <h1>Vintage Culture</h1>
             </Link>
           </div>
 
@@ -114,6 +116,9 @@ const NavBar = () => {
           <div className="navbar__bottom-container">
             {/* Navigational links */}
             <ul className="navbar__links">
+              <li>
+                <Link to="/cart"> Cart ({totalCartItems}) </Link>
+              </li>
               <li>
                 <Link to="/about"> About </Link>
               </li>
@@ -139,7 +144,6 @@ const NavBar = () => {
                 </Link>
               </>
             )}
-
             {isLoggedIn && <button onClick={onSignOut}>Sign out</button>}
           </div>
         </div>
