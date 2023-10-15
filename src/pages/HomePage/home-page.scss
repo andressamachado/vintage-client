@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+
+.home-page {
+  margin-inline: 0;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include flexbox(column, center, center, 0, nowrap);
+    background-color: #000000d9;
+    z-index: 1;
+  }
+}
