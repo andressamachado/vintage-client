@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { SessionContext } from "../../components/SessionContext/SessionContext";
 import "react-toastify/dist/ReactToastify.css";
 import FormInput from "../../components/FormInput/FormInput";
 import Button from "../../components/Button/Button";
@@ -10,6 +11,8 @@ import "./sign-up-page.scss";
 function SignUpPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  // if looged in blocks user from signing up again by redirecting to home page
+  const { isLoggedIn } = useContext(SessionContext);
 
   // Request to the server to create a new user
   const handleSubmit = (event) => {
@@ -45,6 +48,12 @@ function SignUpPage() {
 
     send();
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <main className="signup-component">

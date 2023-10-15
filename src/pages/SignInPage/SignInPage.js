@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { SessionContext } from "../../components/SessionContext/SessionContext";
 import "react-toastify/dist/ReactToastify.css";
 import FormInput from "../../components/FormInput/FormInput";
 import Button from "../../components/Button/Button";
@@ -10,6 +11,8 @@ import "./sign-in-page.scss";
 function SignInPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  // Get isLoggedIn to check if user is logged in to redirect to home page
+  const { isLoggedIn, logIn } = useContext(SessionContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,12 +26,7 @@ function SignInPage() {
           password: event.target.password.value,
         }
       );
-
-      // Save JWT token to browser storage
-      sessionStorage.setItem("token", data.token);
-
-      toast.success("Go fill your basket!");
-      setTimeout(() => { navigate("/") }, 2500);
+      logIn(data.token);
     } catch (error) {
       const errorArr = error.response.data;
       if (typeof errorArr === "object") {
@@ -40,6 +38,18 @@ function SignInPage() {
       setError(error.message);
     }
   };
+
+  // If on first load is logged in, redirect
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/");
+    }
+  }, []);
+
+  // When user logins redirects after signin is done
+  if (isLoggedIn) {
+    navigate("/");
+  }
 
   return (
     <main className="signin-component">
