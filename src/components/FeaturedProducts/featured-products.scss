@@ -1,0 +1,24 @@
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/headerOverlay" as *;
+
+.featured-products {
+  background-color: $card-background-color;
+  margin-inline: $mobile-inline-margin;
+  @include headerOverlay(false);
+
+  &__wrapper {
+    @include flexbox(column, flex-start, center, 0, nowrap);
+    overflow-x: auto;
+    padding: 0 2rem 2rem;
+  }
+
+  &__title {
+    font-family: $body-font-family;
+    margin-bottom: 1rem;
+  }
+
+  &__cards {
+    @include flexbox(row, center, center, 1rem, nowrap);
+  }
+}
