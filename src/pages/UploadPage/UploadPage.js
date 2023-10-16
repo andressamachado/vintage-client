@@ -33,11 +33,11 @@ function UploadPage() {
     const title = event.target.title.value;
     const description = event.target.description.value;
     const price = event.target.price.value;
-
+    const category = event.target.category.value;
 
     // Checks if title and description fields were filled by the user
-    isFormValid = !title || !description || !price ? false : true;
-  
+    isFormValid = !title || !description || !price || !category ? false : true;
+
     if (!isFormValid) {
       notifyFormError();
       return;
@@ -48,19 +48,19 @@ function UploadPage() {
       try {
         const { data } = await axios.post(
           "http://127.0.0.1:5050/api/products/upload",
-          { image, title, description, price },
+          { image, title, description, price, category },
           { headers: { "Content-Type": "multipart/form-data" } }
         );
 
         return data.id;
       } catch (error) {
         console.log(error);
-      } 
+      }
     };
 
     let productId = await createProduct();
     // redirect to newly added product
-    navigate(`/products/${productId}`);
+    //navigate(`/products/${productId}`);
   };
 
   return (
@@ -72,18 +72,35 @@ function UploadPage() {
       <div className="upload__main">
         <div className="upload__form-container">
           {/* Form fields: Title, upload image, description, price, cancel and upload buttons */}
-          <form id="uploadForm" action="upload" encType="multipart/form-data" onSubmit={handleSubmit} >
+          <form
+            id="uploadForm"
+            action="upload"
+            encType="multipart/form-data"
+            onSubmit={handleSubmit}
+          >
             {/* Image preview */}
             <div className="upload__image-preview-container">
               <div className="upload__image-preview">
                 <label className="upload__label">
                   Image preview
-                  <input name="image_file" type="file" accept="image/*" onChange={onImageChange} />
+                  <input
+                    name="image_file"
+                    type="file"
+                    accept="image/*"
+                    onChange={onImageChange}
+                  />
                 </label>
 
                 <div>
                   {/* If imagePreview was set, then transform the string URL to an object URL to be displayed */}
-                  <img src={imagePreview ? URL.createObjectURL(imagePreview) :  imagePlaceholder} alt="product image preview" />
+                  <img
+                    src={
+                      imagePreview
+                        ? URL.createObjectURL(imagePreview)
+                        : imagePlaceholder
+                    }
+                    alt="product image preview"
+                  />
                 </div>
               </div>
             </div>
@@ -98,13 +115,22 @@ function UploadPage() {
                   placeholder="Add a price to your product"
                 />
               </label>
-              
+
               <label className="upload__label">
                 Title your product
                 <input
                   type="text"
                   name="title"
                   placeholder="Add a title to your product"
+                />
+              </label>
+
+              <label className="upload__label">
+                Category
+                <input
+                  type="text"
+                  name="category"
+                  placeholder="Add a category tag to your product"
                 />
               </label>
 
