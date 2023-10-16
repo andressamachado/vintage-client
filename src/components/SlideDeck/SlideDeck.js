@@ -26,7 +26,6 @@ function Slideshow() {
     image9,
   ];
 
-  //Ready to get emerged? listen to our playlist! p
   return (
     <div className="slide-deck">
       <Slide>
@@ -42,7 +41,9 @@ function Slideshow() {
       </Slide>
 
       <div className="slide-deck__overlay"> </div>
-      <h2 className="slide-deck__text-overlay">For a better future</h2>
+      <div className="slide-deck__text-overlay">
+        <h2>For a better future</h2>
+      </div>
     </div>
   );
 }
