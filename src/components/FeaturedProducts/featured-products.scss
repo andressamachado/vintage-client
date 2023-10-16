@@ -4,7 +4,8 @@
 
 .featured-products {
   background-color: $card-background-color;
-  margin-inline: $mobile-inline-margin;
+  margin: 0 $mobile-inline-margin 1rem;
+  padding-top: 2rem;
   @include headerOverlay(false);
 
   &__wrapper {
@@ -14,11 +15,16 @@
   }
 
   &__title {
+    text-align: start;
+    margin-left: $mobile-inline-margin;
     font-family: $body-font-family;
-    margin-bottom: 1rem;
+    font-weight: 200;
+    font-size: 1.85rem;
+    color: rgb(109, 97, 97);
   }
 
   &__cards {
+    margin-top: 1.5rem;
     @include flexbox(row, center, center, 1rem, nowrap);
   }
 }
