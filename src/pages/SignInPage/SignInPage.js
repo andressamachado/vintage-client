@@ -11,8 +11,8 @@ import "./sign-in-page.scss";
 function SignInPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  // Get isLoggedIn to check if user is logged in to redirect to home page
-  const { isLoggedIn, logIn } = useContext(SessionContext);
+  // Get user to check if user is logged in to redirect to home page
+  const { user, logIn } = useContext(SessionContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,13 +41,13 @@ function SignInPage() {
 
   // If on first load is logged in, redirect
   useEffect(() => {
-    if (isLoggedIn) {
+    if (user) {
       navigate("/");
     }
   }, []);
 
   // When user logins redirects after signin is done
-  if (isLoggedIn) {
+  if (user) {
     navigate("/");
   }
 

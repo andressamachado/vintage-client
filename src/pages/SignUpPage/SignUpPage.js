@@ -12,7 +12,7 @@ function SignUpPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   // if looged in blocks user from signing up again by redirecting to home page
-  const { isLoggedIn } = useContext(SessionContext);
+  const { user } = useContext(SessionContext);
 
   // Request to the server to create a new user
   const handleSubmit = (event) => {
@@ -50,7 +50,7 @@ function SignUpPage() {
   };
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (user) {
       navigate("/");
     }
   }, []);

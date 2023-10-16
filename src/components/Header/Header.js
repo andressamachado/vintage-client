@@ -12,7 +12,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartProducts } = useContext(CartContext);
 
-  const { isLoggedIn, logOut } = useContext(SessionContext);
+  const { user, logOut } = useContext(SessionContext);
 
   const totalCartItems = cartProducts.reduce((total, { quantity }) => {
     total = +quantity;
@@ -77,7 +77,7 @@ const NavBar = () => {
           </ul>
 
           {/* Sign Up and Sign In btns */}
-          {!isLoggedIn && (
+          {!user && (
             <>
               <div>
                 <Button
@@ -92,7 +92,7 @@ const NavBar = () => {
             </>
           )}
 
-          {isLoggedIn && <button> Sign out</button>}
+          {user && <button> Sign out</button>}
         </Menu>
       </nav>
 
@@ -134,7 +134,7 @@ const NavBar = () => {
             </ul>
 
             {/* Sign In and Sign Up btns */}
-            {!isLoggedIn && (
+            {!user && (
               <>
                 <Link to="/sign-up">
                   <p className="navbar__signup-btn">Sign Up</p>
@@ -144,7 +144,7 @@ const NavBar = () => {
                 </Link>
               </>
             )}
-            {isLoggedIn && <button onClick={onSignOut}>Sign out</button>}
+            {user && <button onClick={onSignOut}>Sign out</button>}
           </div>
         </div>
       </nav>

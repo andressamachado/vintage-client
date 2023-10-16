@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SessionContext } from "./components/SessionContext/SessionContext";
 import { CartContext } from "./components/CartContext/CartContext";
-import { logIn, logOut, checkUserLoggedIn } from "./utils/session";
+import { logIn, logOut } from "./utils/session";
 import { addToCart, removeFromCart, clearCart } from "./utils/cart";
 import Header from "./components/Header/Header";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
@@ -11,25 +11,26 @@ import HomePage from "./pages/HomePage/HomePage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
+import RequireUserAdmin from "./components/RequireUserAdmin/RequireUserAdmin";
 import "./app.scss";
+import SellerInventory from "./pages/SellerInventory/SellerInventory";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(checkUserLoggedIn);
+  const [user, setUser] = useState();
   const [cartProducts, setCartProducts] = useState([]);
 
   const contextLogin = (token) => {
-    logIn(token);
-    setIsLoggedIn(true);
+    const user = logIn(token);
+    setUser(user);
   };
 
   const contextLogout = () => {
     logOut();
-    setIsLoggedIn(false);
+    setUser();
   };
 
   const handleAddToCart = (product) => {
     addToCart(cartProducts, product);
-    // se algo no array muda o react não detecta a mudança, por isso é necessário criar um novo array
     setCartProducts([...cartProducts]);
   };
 
@@ -47,7 +48,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <SessionContext.Provider
-          value={{ isLoggedIn, logIn: contextLogin, logOut: contextLogout }}
+          value={{ user, logIn: contextLogin, logOut: contextLogout }}
         >
           <CartContext.Provider
             value={{
@@ -62,9 +63,24 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/sign-up" element={<SignUpPage />} />
               <Route path="/sign-in" element={<SignInPage />} />
-              <Route path="/upload" element={<UploadPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/products/:id" element={<ProductPage />} />
+              <Route
+                path="/seller/:id"
+                element={
+                  <RequireUserAdmin>
+                    <SellerInventory />
+                  </RequireUserAdmin>
+                }
+              />
+              <Route
+                path="/upload"
+                element={
+                  <RequireUserAdmin>
+                    <UploadPage />
+                  </RequireUserAdmin>
+                }
+              />
             </Routes>
           </CartContext.Provider>
         </SessionContext.Provider>
