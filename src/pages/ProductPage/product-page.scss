@@ -1,0 +1,84 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+
+.product-page {
+  position: relative;
+  background-color: $card-background-color;
+  margin: 2rem $mobile-inline-margin;
+  padding: 1.5rem 0;
+  @include tabletMode {
+    margin: 4rem $tablet-inline-margin;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  @include desktopMode {
+    margin: 4rem auto;
+    max-width: $desktop-max-width;
+  }
+  border-radius: 10px;
+  box-shadow: $default-box-shadow;
+
+  &__name {
+    margin-inline: calc(2 * $mobile-inline-margin);
+    padding-bottom: 1rem;
+    text-align: center;
+    h2 {
+      font-family: $price-tag-font-family;
+    }
+  }
+
+  &__primary-image {
+    width: 100%;
+    height: 70%;
+    text-align: center;
+    margin-bottom: 1rem;
+    img {
+      width: 70%;
+      height: 100%;
+      box-shadow: $default-box-shadow;
+      object-fit: cover;
+    }
+  }
+
+  &__secondary-images {
+    width: 100%;
+    margin-bottom: 1rem;
+    @include flexbox(row, center, center, 1.5rem, nowrap);
+    img {
+      width: 20%;
+      height: 100%;
+      box-shadow: $default-box-shadow;
+      object-fit: cover;
+    }
+  }
+
+  &__info-section {
+    margin: 2rem 0;
+    margin-inline: calc(2 * $mobile-inline-margin);
+    @include flexbox(column, center, center, 1.5rem, nowrap);
+  }
+
+  &__price-button {
+    width: 100%;
+    @include flexbox(row, space-between, center, 1.5rem, nowrap);
+
+    p {
+      font-family: $price-tag-price-font-family;
+      font-size: 2rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      border: 1px solid $button-border-color;
+      background-color: $button-background-color;
+      color: $light-font-color;
+      cursor: cell;
+
+      &:hover {
+      }
+    }
+  }
+}
