@@ -1,5 +1,6 @@
 @use "../../styles/partials/displayFlexbox" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 // https://react-slideshow-image.netlify.app/?path=/story/introduction--page
 
@@ -32,6 +33,9 @@
       color: $light-font-color;
       opacity: 80%;
       font-size: 30px;
+      @include tabletMode {
+        font-size: 50px;
+      }
     }
   }
 
@@ -42,6 +46,9 @@
     img {
       height: auto;
       width: 100%;
+      @include tabletMode {
+        object-fit: cover;
+      }
     }
   }
 
