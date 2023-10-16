@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import "./product-card.scss";
 
-function ProductCard({ producTitle, productImage, productPrice, productId }) {
+function ProductCard({ productTitle, productImage, productPrice, productId }) {
   return (
     <Link to={`/products/${productId}`}>
       <div className="featured-products__card">
         <div className="featured-products__image">
-          <img src={productImage} alt="shirt" />
+          <img src={productImage} alt={productTitle} />
         </div>
         <div className="featured-products__name">
-          <h3>{producTitle}</h3>
+          <h3>{productTitle}</h3>
         </div>
-        <div>
-          <span className="featured-products__price">{productPrice}</span>
+        <div className="featured-products__price">
+          <span>{productPrice}</span>
         </div>
       </div>
     </Link>
