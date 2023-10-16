@@ -47,6 +47,7 @@ function FeaturedProducts() {
                     arrayBufferToBase64(product.image.data)
                   }
                   productPrice={product.price}
+                  productId={product.id}
                 />
               );
             })}

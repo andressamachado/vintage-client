@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { CartContext } from "../../components/CartContext/CartContext";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 function ProductPage() {
   const { cartProducts, addToCart } = useContext(CartContext);
   const [product, setProduct] = useState();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   let productAlreadyInCart = cartProducts.some(({ product }) => {
@@ -16,10 +17,17 @@ function ProductPage() {
 
   useEffect(() => {
     const getProduct = async (productId) => {
-      const { data } = await axios.get(
-        `http://127.0.0.1:5050/api/products/${productId}`
-      );
-      setProduct(data);
+      try {
+        const { data } = await axios.get(
+          `http://127.0.0.1:5050/api/products/${productId}`
+        );
+
+        setProduct(data);
+      } catch (error) {
+        if (error.response.status === 404) {
+          navigate("/not-found", { replace: true });
+        }
+      }
     };
 
     getProduct(id);
