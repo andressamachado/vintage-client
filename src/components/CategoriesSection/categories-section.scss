@@ -1,0 +1,54 @@
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/headerOverlay" as *;
+
+.categories {
+  border-radius: 1rem;
+  margin: 1rem $mobile-inline-margin 1rem;
+  padding: 4rem 0 10rem;
+  background-color: $card-background-color;
+  @include flexbox(row, center, center, 2rem, wrap);
+  position: relative;
+  top: -70px;
+
+  &__title {
+    width: 100%;
+    text-align: start;
+    margin-left: $mobile-inline-margin;
+    h2 {
+      font-family: $body-font-family;
+      font-weight: 200;
+      font-size: 1.85rem;
+      color: rgb(109, 97, 97);
+    }
+  }
+
+  &__card {
+    width: 200px;
+    height: 250px;
+    background-color: $card-background-color;
+    border-radius: 0.5rem;
+    border: 2px solid $background-color;
+    @include flexbox(column, center, center, 0, nowrap);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 10px 10px 0 0 #d79922;
+    }
+
+    img {
+      width: 150px;
+      height: 160px;
+      box-shadow: $default-box-shadow;
+      object-fit: cover;
+    }
+
+    h4 {
+      font-family: $price-tag-font-family;
+      font-size: 1.8rem;
+      margin: 1rem 0 0;
+      text-align: center;
+    }
+  }
+}
