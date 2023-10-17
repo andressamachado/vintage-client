@@ -51,6 +51,12 @@
       height: 100%;
       box-shadow: $default-box-shadow;
       object-fit: cover;
+      &:hover {
+        cursor: grab;
+      }
+      &:active {
+        cursor: grabbing;
+      }
     }
   }
 
@@ -76,8 +82,11 @@
       background-color: $button-background-color;
       color: $light-font-color;
       cursor: cell;
-
       &:hover {
+        background-color: $button-border-color;
+      }
+      &:active {
+        cursor: pointer;
       }
     }
   }
