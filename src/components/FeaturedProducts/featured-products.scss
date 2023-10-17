@@ -5,7 +5,7 @@
 .featured-products {
   background-color: $card-background-color;
   margin: 0 $mobile-inline-margin 1rem;
-  padding-top: 2rem;
+  padding: 2rem $mobile-inline-margin;
   @include headerOverlay(false);
 
   &__wrapper {
