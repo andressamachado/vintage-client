@@ -9,12 +9,12 @@ function Footer() {
       <div className="footer__top-left-container">
         <div className="footer__logo">
           <Link to="/">
-            <h1> Vintage Culture </h1>
+            <h2> Vintage Culture </h2>
             <p> For a better future </p>
           </Link>
         </div>
         <iframe
-          width="75%"
+          width="90%"
           height="40%"
           frameborder="no"
           allow="autoplay"
@@ -23,12 +23,15 @@ function Footer() {
       </div>
 
       <div className="footer__bottom-right-container">
-        <a href="https://github.com/andressamachado/vintage-client">
-          <img src={githubLogo} alt="GitHub logo" />
-        </a>
-        <a href="https://www.linkedin.com/in/machado-andressa/">
-          <img src={linedinLogo} alt="LinkedIn logo" />
-        </a>
+        <div className="footer__social-media">
+          <a href="https://github.com/andressamachado/vintage-client">
+            <img src={githubLogo} alt="GitHub logo" />
+          </a>
+          <a href="https://www.linkedin.com/in/machado-andressa/">
+            <img src={linedinLogo} alt="LinkedIn logo" />
+          </a>
+        </div>
+        <span> Made with 🤍 by Andressa Machado</span>
       </div>
     </footer>
   );

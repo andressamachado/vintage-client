@@ -1,29 +1,36 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .footer {
   margin-top: auto;
   padding: 0 $mobile-inline-margin 2rem;
   padding-inline: $mobile-inline-margin;
   @include flexbox(row, flex-start, space-between, 0, nowrap);
+  @include tabletMode {
+    padding-inline: $tablet-inline-margin;
+  }
+  @include desktopMode {
+    max-width: $desktop-max-width;
+    margin: 0 auto;
+  }
 
   &__top-left-container {
     color: whitesmoke;
     width: 50%;
-    @include flexbox(column, space-between, center, 0, nowrap);
+    @include flexbox(column, flex-end, center, 2rem, nowrap);
   }
 
   &__logo {
     a {
       @include flexbox(column, center, center, 0, nowrap);
-      h1 {
+      h2 {
         font-family: $heading-font-family;
         color: #a75e7f;
       }
       p {
         font-family: $body-font-family;
         font-weight: 200;
-        font-size: 20px;
         color: rgb(227, 223, 223);
         letter-spacing: 0.5rem;
         text-align: center;
@@ -35,12 +42,21 @@
   }
 
   &__bottom-right-container {
-    @include flexbox(row, space-evenly, flex-end, 0, nowrap);
+    width: 50%;
+    @include flexbox(column, flex-end, flex-end, 1rem, nowrap);
+
+    span {
+      color: whitesmoke;
+    }
+  }
+
+  &__social-media {
+    @include flexbox(row, flex-end, flex-end, 2rem, nowrap);
     width: 50%;
 
     a {
       img {
-        width: 70px;
+        width: 45px;
         object-fit: cover;
       }
     }
