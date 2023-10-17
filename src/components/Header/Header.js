@@ -74,6 +74,9 @@ const NavBar = () => {
             <Link to="/categories">
               <li>Clothing</li>
             </Link>
+            <Link to="/upload">
+              <li>Upload Product</li>
+            </Link>
           </ul>
 
           {/* Sign Up and Sign In btns */}
