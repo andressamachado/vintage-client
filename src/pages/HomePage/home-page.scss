@@ -1,8 +1,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .home-page {
   margin-inline: 0;
+  @include desktopMode {
+    max-width: $desktop-max-width;
+    margin: 0 auto;
+  }
 
   &__overlay {
     position: absolute;
