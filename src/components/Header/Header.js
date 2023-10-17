@@ -71,12 +71,19 @@ const NavBar = () => {
             <Link to="/repair">
               <li>Repair</li>
             </Link>
-            <Link to="/categories">
+            <Link to="/clothing">
               <li>Clothing</li>
             </Link>
-            <Link to="/upload">
-              <li>Upload Product</li>
-            </Link>
+            {user && (
+              <Link to="/wishlist">
+                <li>Wishlist</li>
+              </Link>
+            )}
+            {user && user.isAdmin && (
+              <Link to="/upload">
+                <li>Upload Product</li>
+              </Link>
+            )}
           </ul>
 
           {/* Sign Up and Sign In btns */}
@@ -95,7 +102,7 @@ const NavBar = () => {
             </>
           )}
 
-          {user && <button> Sign out</button>}
+          {user && <button onClick={onSignOut}> Sign out</button>}
         </Menu>
       </nav>
 
@@ -132,8 +139,13 @@ const NavBar = () => {
                 <Link to="/repair"> Repair </Link>
               </li>
               <li>
-                <Link to="/categories"> Clothing</Link>
+                <Link to="/clothing"> Clothing</Link>
               </li>
+              {user && (
+                <li>
+                  <Link to="/wishlist">Wishlist</Link>
+                </li>
+              )}
             </ul>
 
             {/* Sign In and Sign Up btns */}
