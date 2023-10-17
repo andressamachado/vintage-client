@@ -1,0 +1,62 @@
+@use "../../styles/partials/mobileMenu" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+@use "../../styles/partials/variables" as *;
+
+.shopping-cart {
+  height: 25rem;
+  position: relative;
+  background-color: $card-background-color;
+  margin: 2rem $mobile-inline-margin;
+  padding: 2rem 0;
+  @include flexbox(column, flex-start, center, 0, nowrap);
+
+  @include tabletMode {
+    margin: 4rem $tablet-inline-margin;
+    @include flexbox(column, flex-start, center, 0, nowrap);
+  }
+  @include desktopMode {
+    margin: 4rem auto;
+    max-width: $desktop-max-width;
+  }
+  border-radius: 10px;
+  box-shadow: $default-box-shadow;
+
+  h3 {
+    margin-bottom: 3rem;
+  }
+
+  &__product {
+    width: 190px;
+    background-color: white;
+    margin-bottom: 0.5rem;
+    @include flexbox(row, flex-start, flex-start, 0, nowrap);
+
+    img {
+      height: 60px;
+    }
+  }
+
+  &__info {
+    padding-inline: 1rem;
+    width: 100%;
+    @include flexbox(column, flex-end, flex-end, 0, nowrap);
+
+    p {
+      font-size: $mobile-p2-size;
+    }
+  }
+
+  &__actions {
+    @include flexbox(row, flex-end, center, 0, nowrap);
+    span {
+      cursor: pointer;
+      color: $red;
+      font-size: $mobile-p3-size;
+
+      &:span {
+        color: $dark-red;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../components/CartContext/CartContext";
+import "./cart-page.scss";
 
 function CartPage() {
   const { cartProducts, removeFromCart } = useContext(CartContext);
@@ -8,13 +9,27 @@ function CartPage() {
     removeFromCart(productId);
   };
 
+  const arrayBufferToBase64 = (buffer) => {
+    let binary = "";
+    let bytes = new Uint8Array(buffer);
+    let len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  };
+
   const productsMarkup = cartProducts.map(({ product }) => {
     return (
-      <div className="cart-product">
-        <img src={product.image}></img>
-        <div className="info">
+      <div className="shopping-cart__product">
+        <img
+          src={
+            "data:image/jpeg;base64," + arrayBufferToBase64(product.image.data)
+          }
+        />
+        <div className="shopping-cart__info">
           <p>Price: {product.price}</p>
-          <div className="actions">
+          <div className="shopping-cart__actions">
             <span
               onClick={() => {
                 handleRemoveFromCart(product.id);
@@ -32,7 +47,7 @@ function CartPage() {
 
   return (
     <main>
-      <div className="card">
+      <div className="shopping-cart">
         <h3>Shopping Cart</h3>
         {productsMarkup.length !== 0 ? productsMarkup : emptyMarktup}
       </div>

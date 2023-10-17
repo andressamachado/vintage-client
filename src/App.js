@@ -10,12 +10,16 @@ import SignInPage from "./pages/SignInPage/SignInPage";
 import HomePage from "./pages/HomePage/HomePage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Clothing from "./pages/Clothing/Clothing";
 import CartPage from "./pages/CartPage/CartPage";
 import RequireUserAdmin from "./components/RequireUserAdmin/RequireUserAdmin";
+import RequireUser from "./components/RequireUser/RequireUser";
 import SellerInventory from "./pages/SellerInventory/SellerInventory";
 import Footer from "./components/Footer/Footer";
 
 import "./app.scss";
+import Wishlist from "./pages/Wishlist/Wishlist";
+import ProductsByCategory from "./pages/ProductsByCategory/ProductsByCategory";
 
 function App() {
   const [user, setUser] = useState();
@@ -66,6 +70,8 @@ function App() {
               <Route path="/sign-up" element={<SignUpPage />} />
               <Route path="/sign-in" element={<SignInPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/clothing" element={<Clothing />} />
+              <Route path="/products" element={<ProductsByCategory />} />
               <Route path="/products/:id" element={<ProductPage />} />
               <Route
                 path="/seller/:id"
@@ -84,6 +90,14 @@ function App() {
                 }
               />
             </Routes>
+            <Routes
+              path="/wishlist"
+              element={
+                <RequireUser>
+                  <Wishlist />
+                </RequireUser>
+              }
+            />
             <Footer />
           </CartContext.Provider>
         </SessionContext.Provider>

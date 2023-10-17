@@ -5,8 +5,8 @@
 .product-page {
   position: relative;
   background-color: $card-background-color;
-  margin: 2rem $mobile-inline-margin;
-  padding: 1.5rem 0;
+  margin: 2rem $mobile-inline-margin 8rem;
+  padding: 2.5rem 0;
   @include tabletMode {
     margin: 4rem $tablet-inline-margin;
     display: flex;
