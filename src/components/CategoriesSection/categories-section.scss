@@ -5,16 +5,22 @@
 .categories {
   border-radius: 1rem;
   margin: 1rem $mobile-inline-margin 1rem;
-  padding: 4rem 0 10rem;
+  padding: 4rem $mobile-inline-margin 10rem;
   background-color: $card-background-color;
   @include flexbox(row, center, center, 2rem, wrap);
   position: relative;
-  top: -70px;
+  top: -10px;
+  background-image: url("../../assets/ilustrations/Transhumans\ -\ Meela\ Pantalones.png");
+  background-position-y: bottom;
+  background-position-x: calc(100% - 2 * $mobile-inline-margin);
+  background-repeat: no-repeat;
+  background-size: 20%;
 
   &__title {
     width: 100%;
     text-align: start;
     margin-left: $mobile-inline-margin;
+    margin-bottom: 1.5rem;
     h2 {
       font-family: $body-font-family;
       font-weight: 200;
