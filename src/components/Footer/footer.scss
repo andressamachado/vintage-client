@@ -1,0 +1,48 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/displayFlexbox" as *;
+
+.footer {
+  margin-top: auto;
+  padding: 0 $mobile-inline-margin 2rem;
+  padding-inline: $mobile-inline-margin;
+  @include flexbox(row, flex-start, space-between, 0, nowrap);
+
+  &__top-left-container {
+    color: whitesmoke;
+    width: 50%;
+    @include flexbox(column, space-between, center, 0, nowrap);
+  }
+
+  &__logo {
+    a {
+      @include flexbox(column, center, center, 0, nowrap);
+      h1 {
+        font-family: $heading-font-family;
+        color: #a75e7f;
+      }
+      p {
+        font-family: $body-font-family;
+        font-weight: 200;
+        font-size: 20px;
+        color: rgb(227, 223, 223);
+        letter-spacing: 0.5rem;
+        text-align: center;
+      }
+    }
+  }
+
+  &__message {
+  }
+
+  &__bottom-right-container {
+    @include flexbox(row, space-evenly, flex-end, 0, nowrap);
+    width: 50%;
+
+    a {
+      img {
+        width: 70px;
+        object-fit: cover;
+      }
+    }
+  }
+}

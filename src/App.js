@@ -12,8 +12,10 @@ import UploadPage from "./pages/UploadPage/UploadPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import RequireUserAdmin from "./components/RequireUserAdmin/RequireUserAdmin";
-import "./app.scss";
 import SellerInventory from "./pages/SellerInventory/SellerInventory";
+import Footer from "./components/Footer/Footer";
+
+import "./app.scss";
 
 function App() {
   const [user, setUser] = useState();
@@ -82,6 +84,7 @@ function App() {
                 }
               />
             </Routes>
+            <Footer />
           </CartContext.Provider>
         </SessionContext.Provider>
       </BrowserRouter>
