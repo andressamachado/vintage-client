@@ -6,8 +6,10 @@
 
 .slide-deck {
   position: relative;
+  padding-inline: 1rem;
 
   &__overlay {
+    padding-inline: 1rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -19,6 +21,7 @@
   }
 
   &__text-overlay {
+    padding-inline: 1 rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -42,6 +45,9 @@
   .each-slide-effect > div {
     width: 100vw;
     height: 35vh;
+    @include desktopMode {
+      height: 50vh;
+    }
 
     img {
       height: auto;
