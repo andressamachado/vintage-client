@@ -20,11 +20,13 @@ Those textiles will end up in countries like India, Chile, Kenya, and Ghana, cau
 ![Axios](https://github.com/andressamachado/vintage-client/assets/37486615/9dfce471-3566-4ccb-bb6d-b39a17805e2a)
 
 
-## Available Scripts
+## Running locally
 
 In the project directory, you can run:
-### `npm install `
-### `npm start`
+
+1. Run `npm install` to install all the packages used in the project
+
+2. Run `npm start` to run the application
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
