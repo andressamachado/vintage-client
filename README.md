@@ -23,7 +23,7 @@ Those textiles will end up in countries like India, Chile, Kenya, and Ghana, cau
 ## Available Scripts
 
 In the project directory, you can run:
-
+### `npm install `
 ### `npm start`
 
 Runs the app in the development mode.\
